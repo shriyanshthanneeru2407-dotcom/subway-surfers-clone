@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Subway Dash 🚇</title>
+<title>Subway Dash 🚇 | Engineered by Shriyansh Thanneeru</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#090915;
+  background:#070414;
   overflow:hidden;
   display:flex;
   justify-content:center;
@@ -24,24 +24,351 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-  border-radius: 12px;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.88), 0 0 30px rgba(123, 31, 162, 0.25);
+  border-radius: 16px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 canvas{
   display:block;
   cursor:pointer;
+}
+
+/* ─── START SCREEN OVERLAY ──────────────────────────────── */
+#start-screen{
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 18px 16px;
+  background: radial-gradient(circle at 50% 20%, rgba(35, 12, 65, 0.88), rgba(8, 4, 18, 0.94));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: #fff;
+  overflow-y: auto;
+  scrollbar-width: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+#start-screen::-webkit-scrollbar { display: none; }
+#start-screen.hidden{
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.97);
+}
+
+/* Logo & Branding */
+.logo-block{
+  text-align: center;
+  margin-top: 2px;
+}
+.logo-sub{
+  display: block;
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  color: #FF6D00;
+  text-shadow: 0 0 25px rgba(255, 109, 0, 0.8), 0 3px 0 #bf360c;
+  line-height: 1;
+}
+.logo-dash{
+  display: block;
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #FFD600;
+  text-shadow: 0 0 30px rgba(255, 214, 0, 0.85), 0 3px 0 #b26a00;
+  line-height: 1.1;
+}
+.tagline{
+  font-size: 11px;
+  font-weight: 800;
+  color: #00E5FF;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 6px;
+  text-shadow: 0 0 10px rgba(0, 229, 255, 0.6);
+}
+
+/* About App Section */
+.about-card{
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 11px 14px;
+  margin: 10px 0 6px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+.about-title{
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  color: #FFA726;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.about-text{
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.84);
+  font-weight: 400;
+}
+.about-text strong{
+  color: #FFD54F;
+  font-weight: 600;
+}
+
+/* Feature Highlights Grid */
+.features-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  width: 100%;
+  margin: 6px 0;
+}
+.feat-pill{
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 6px 8px;
+  font-size: 10.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.88);
+}
+.feat-icon{
+  font-size: 15px;
+}
+.feat-desc b{
+  display: block;
+  font-size: 11px;
+  color: #FFF;
+}
+
+/* Controls Strip */
+.controls-card{
+  width: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 8px 12px;
+  margin: 6px 0;
+}
+.controls-header{
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+.controls-row{
+  display: flex;
+  justify-content: space-around;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+}
+.ctrl-badge kbd{
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #FFEA00;
+  font-family: inherit;
+}
+
+/* Action Area */
+.action-box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0;
+}
+.best-score{
+  font-size: 12px;
+  font-weight: 800;
+  color: #FFD54F;
+  letter-spacing: 1px;
+}
+.play-btn{
+  width: 220px;
+  height: 54px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 27px;
+  background: linear-gradient(135deg, #FF6D00, #E53935);
+  color: #FFF;
+  font-family: 'Arial Black', Impact, sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 6px 25px rgba(229, 57, 53, 0.55), 0 0 15px rgba(255, 109, 0, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  animation: pulseBtn 1.8s infinite;
+}
+.play-btn:hover{
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px rgba(229, 57, 53, 0.75), 0 0 20px rgba(255, 109, 0, 0.6);
+}
+.play-btn:active{
+  transform: scale(0.97);
+}
+@keyframes pulseBtn{
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+/* Footer Section */
+.app-footer{
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+  margin-top: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.creator-block{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.creator-title{
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+}
+.creator-name{
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  background: linear-gradient(90deg, #FFD54F, #FF8A65, #00E5FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 16px rgba(255, 213, 79, 0.4);
+}
+.rights-reserved{
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  color: rgba(255, 255, 255, 0.55);
+  text-transform: uppercase;
+}
+.app-version{
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.35);
+  letter-spacing: 0.5px;
 }
 </style>
 </head>
 <body>
 <div id="game-container">
   <canvas id="c"></canvas>
+
+  <!-- Start Screen Overlay -->
+  <div id="start-screen">
+    <!-- Top Header -->
+    <div class="logo-block">
+      <span class="logo-sub">SUBWAY</span>
+      <span class="logo-dash">DASH 🚇</span>
+      <div class="tagline">DODGE THE TRAINS • CHASE THE GOLD • DEFY THE RAILS</div>
+    </div>
+
+    <!-- About The App -->
+    <div class="about-card">
+      <div class="about-title">
+        <span>⚡</span> ABOUT THE APP
+      </div>
+      <p class="about-text">
+        <strong>Subway Dash</strong> is an adrenaline-fueled 3D endless runner built for lightning reflexes. Dash across high-voltage tracks, dodge oncoming subway trains, leap over barricades, and roll underneath industrial beams. Collect gold coins and activate power-ups to shatter records!
+      </p>
+    </div>
+
+    <!-- Key App Features -->
+    <div class="features-grid">
+      <div class="feat-pill">
+        <span class="feat-icon">🛡️</span>
+        <div class="feat-desc"><b>Shield Buff</b>Crash immunity</div>
+      </div>
+      <div class="feat-pill">
+        <span class="feat-icon">🧲</span>
+        <div class="feat-desc"><b>Coin Magnet</b>All-lane suction</div>
+      </div>
+      <div class="feat-pill">
+        <span class="feat-icon">⚡</span>
+        <div class="feat-desc"><b>2× Multiplier</b>Double points</div>
+      </div>
+      <div class="feat-pill">
+        <span class="feat-icon">🚆</span>
+        <div class="feat-desc"><b>3D Express</b>Dynamic speed</div>
+      </div>
+    </div>
+
+    <!-- Controls Strip -->
+    <div class="controls-card">
+      <div class="controls-header">HOW TO PLAY</div>
+      <div class="controls-row">
+        <div class="ctrl-badge"><kbd>⬅ ➡</kbd> / <kbd>A D</kbd> Lanes</div>
+        <div class="ctrl-badge"><kbd>⬆</kbd> / <kbd>W</kbd> Jump</div>
+        <div class="ctrl-badge"><kbd>⬇</kbd> / <kbd>S</kbd> Roll</div>
+      </div>
+    </div>
+
+    <!-- Play Action Area -->
+    <div class="action-box">
+      <div id="best-score-tag" class="best-score">🏆 HIGH SCORE: 0 PTS</div>
+      <button id="play-btn" class="play-btn">
+        <span>▶</span> PLAY NOW
+      </button>
+    </div>
+
+    <!-- Footer with Developer Credits & Rights Reserved -->
+    <footer class="app-footer">
+      <div class="creator-block">
+        <span class="creator-title">ENGINEERED & DESIGNED BY</span>
+        <span class="creator-name">Shriyansh Thanneeru</span>
+      </div>
+      <div class="rights-reserved">
+        © 2026 SUBWAY DASH • ALL RIGHTS RESERVED
+      </div>
+      <div class="app-version">
+        v1.3.0 • Pure HTML5 Canvas 3D Engine • Zero Dependencies
+      </div>
+    </footer>
+  </div>
 </div>
+
 <script>
 'use strict';
 // ─── SETUP ────────────────────────────────────────────────
 const C = document.getElementById('c'), ctx = C.getContext('2d');
+const startScreen = document.getElementById('start-screen');
+const playBtn = document.getElementById('play-btn');
+const bestScoreTag = document.getElementById('best-score-tag');
+
 const W = 480, H = 800;
 function resize(){
   const r = W / H, wr = innerWidth / innerHeight;
@@ -52,6 +379,11 @@ function resize(){
   C.style.height = ch + 'px';
   C.width = W;
   C.height = H;
+  const container = document.getElementById('game-container');
+  if(container){
+    container.style.width = cw + 'px';
+    container.style.height = ch + 'px';
+  }
 }
 resize();
 window.addEventListener('resize', resize);
@@ -98,7 +430,7 @@ function rr(x, y, w, h, r){
   ctx.moveTo(x + r, y);
   ctx.arcTo(x + w, y, x + w, y + h, r);
   ctx.arcTo(x + w, y + h, x, y + h, r);
-  ctx.arcTo(x, y, x + w, y, r);
+  ctx.arcTo(x, y + h, x, y, r);
   ctx.arcTo(x, y, x + w, y, r);
   ctx.closePath();
 }
@@ -471,7 +803,6 @@ class Player {
   roll(){
     if(this.state === 'dead') return;
     if(this.state === 'jump'){
-      // Fast downward dive
       this.jumpV = Math.min(this.jumpV, -600);
       return;
     }
@@ -484,13 +815,11 @@ class Player {
   update(dt){
     this.animT += dt;
 
-    // Smooth lane interpolation
     if(this.swT < 1){
       this.swT = Math.min(1, this.swT + 7.5 * dt);
       this.laneX = lerp(this.prevX, this.tgtX, easeOutQuad(this.swT));
     }
 
-    // Jump physics
     if(this.state === 'jump'){
       this.jumpY += this.jumpV * dt;
       this.jumpV -= GR * dt;
@@ -498,12 +827,10 @@ class Player {
         this.jumpY = 0;
         this.jumpV = 0;
         this.state = 'run';
-        // Landing dust puff
         burst(this.sp.x, this.sp.y, ['#B0BEC5', '#ECEFF1'], 6, 80);
       }
     }
 
-    // Roll timer
     if(this.state === 'roll'){
       this.rollT -= dt;
       if(this.rollT <= 0){
@@ -512,7 +839,6 @@ class Player {
       }
     }
 
-    // Buff timers
     if(this.invT > 0) this.invT -= dt;
     if(this.shield > 0) this.shield -= dt;
     if(this.magnet > 0) this.magnet -= dt;
@@ -526,7 +852,7 @@ class Player {
       this.invT = 2.0;
       puFx(this.sp.x, this.sp.y - 50);
       SFX.pu();
-      return false; // Absorbed by shield!
+      return false;
     }
     this.state = 'dead';
     SFX.crash();
@@ -537,14 +863,12 @@ class Player {
 
   draw(){
     if(this.state === 'dead') return;
-    // Invincibility blink
     if(this.invT > 0 && Math.floor(this.invT * 12) % 2 === 0) return;
 
     const sp = this.sp, s = sp.s, x = sp.x, y = sp.y;
     ctx.save();
     ctx.translate(x, y);
 
-    // Dynamic ground shadow
     const shAlpha = this.jumpY > 0 ? clamp(0.35 * (1 - this.jumpY / 450), 0.08, 0.35) : 0.4;
     const shScale = this.jumpY > 0 ? clamp(1 - this.jumpY / 650, 0.45, 1) : 1;
     ctx.save();
@@ -555,12 +879,10 @@ class Player {
     ctx.fill();
     ctx.restore();
 
-    // Render character based on active posture
     if(this.state === 'roll') this._renderRoll(s);
     else if(this.state === 'jump') this._renderJump(s);
     else this._renderRun(s, this.animT);
 
-    // Shield effect aura
     if(this.shield > 0){
       const pulse = 0.5 + 0.5 * Math.sin(this.animT * 6);
       ctx.save();
@@ -575,7 +897,6 @@ class Player {
       ctx.restore();
     }
 
-    // Magnet ring aura
     if(this.magnet > 0){
       ctx.save();
       ctx.scale(s, s);
@@ -613,7 +934,6 @@ class Player {
     ctx.fillStyle = '#1565C0';
     rr(-5, 0, 11, 42, 3);
     ctx.fill();
-    // High-top sneaker
     ctx.fillStyle = '#D50000';
     ctx.fillRect(-8, 38, 20, 9);
     ctx.fillStyle = '#FFFFFF';
@@ -672,18 +992,16 @@ class Player {
 
     // Head & Cap
     ctx.fillStyle = '#FFCC80';
-    ctx.fillRect(-5, -138, 10, 10); // Neck
-    rr(-17, -172, 34, 36, 12);     // Face
+    ctx.fillRect(-5, -138, 10, 10);
+    rr(-17, -172, 34, 36, 12);
     ctx.fill();
 
-    // Cool Cap (Backwards style)
     ctx.fillStyle = '#FFD600';
     rr(-15, -182, 30, 18, 6);
     ctx.fill();
     ctx.fillStyle = '#FFAB00';
-    ctx.fillRect(-22, -166, 44, 5); // Visor
+    ctx.fillRect(-22, -166, 44, 5);
 
-    // Anime / Surfer Eyes
     ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(-11, -164, 9, 8);
     ctx.fillRect(3, -164, 9, 8);
@@ -714,7 +1032,6 @@ class Player {
     ctx.save();
     ctx.scale(s, s);
 
-    // Tucked stylish jump legs
     ctx.save();
     ctx.translate(-8, -85);
     ctx.rotate(-0.6);
@@ -745,12 +1062,10 @@ class Player {
     ctx.fillRect(-8, 32, 19, 8);
     ctx.restore();
 
-    // Body
     ctx.fillStyle = '#FF3D00';
     rr(-16, -130, 32, 45, 9);
     ctx.fill();
 
-    // Spread arms
     ctx.save();
     ctx.translate(-16, -122);
     ctx.rotate(-1.2);
@@ -775,7 +1090,6 @@ class Player {
     ctx.fill();
     ctx.restore();
 
-    // Head looking up / excited
     ctx.fillStyle = '#FFCC80';
     rr(-17, -172, 34, 36, 12);
     ctx.fill();
@@ -800,7 +1114,6 @@ class Player {
     ctx.scale(s, s);
     ctx.translate(0, -12);
 
-    // Crouched roll ball
     ctx.fillStyle = '#1565C0';
     ctx.fillRect(-28, -26, 24, 16);
     ctx.fillRect(6, -26, 24, 16);
@@ -808,18 +1121,15 @@ class Player {
     ctx.fillRect(-28, -12, 24, 9);
     ctx.fillRect(6, -12, 24, 9);
 
-    // Torso curled low
     ctx.fillStyle = '#FF3D00';
     rr(-24, -64, 48, 40, 10);
     ctx.fill();
 
-    // Arms tucked
     ctx.fillStyle = '#BF360C';
     ctx.fillRect(-34, -58, 11, 26);
     ctx.fillStyle = '#FF3D00';
     ctx.fillRect(23, -58, 11, 26);
 
-    // Head ducked low
     ctx.fillStyle = '#FFCC80';
     rr(5, -90, 30, 30, 10);
     ctx.fill();
@@ -860,7 +1170,6 @@ class Obstacle {
 
     if(this.type === 'train') return pb < 230 && pt > 0;
     if(this.type === 'barrier') return pb < 95 && pt > 0;
-    // Overhead beam requires player to roll underneath (height clearance ~70)
     return pt > 70 && pb < 280;
   }
 }
@@ -870,7 +1179,6 @@ function drawTrain(sp, d){
   const w = 118 * s, h = 210 * s;
   const x = sp.x - w / 2, y = sp.y - h;
 
-  // Front body with smooth rounded corners
   const tg = ctx.createLinearGradient(x, y, x + w, y);
   tg.addColorStop(0, '#B71C1C');
   tg.addColorStop(0.2, '#E53935');
@@ -885,7 +1193,6 @@ function drawTrain(sp, d){
   rr(x, y, w, h, 8 * s);
   ctx.stroke();
 
-  // Yellow hazard chevron stripes across top
   const barH = 16 * s;
   const stripeW = 14 * s;
   for(let i = 0; i < Math.ceil(w / stripeW); i++){
@@ -894,7 +1201,6 @@ function drawTrain(sp, d){
     ctx.fillRect(sx, y, Math.min(stripeW, w - (sx - x)), barH);
   }
 
-  // Train windshield
   const ww = 32 * s, wh = 24 * s;
   const wsx = x + (w - 2 * ww - 8 * s) / 2;
   const wsy = y + 25 * s;
@@ -910,12 +1216,10 @@ function drawTrain(sp, d){
     ctx.fillStyle = winGrad;
     ctx.fillRect(wx, wsy, ww, wh);
 
-    // Glare
     ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
     ctx.fillRect(wx + 2 * s, wsy + 2 * s, ww * 0.45, wh * 0.65);
   }
 
-  // Massive glowing headlights
   const drawHeadlight = (hx, hy) => {
     const hlGrad = ctx.createRadialGradient(hx, hy, 0, hx, hy, 28 * s);
     hlGrad.addColorStop(0, 'rgba(255, 255, 224, 0.95)');
@@ -934,7 +1238,6 @@ function drawTrain(sp, d){
   drawHeadlight(x + 20 * s, sp.y - 35 * s);
   drawHeadlight(x + w - 20 * s, sp.y - 35 * s);
 
-  // Train Front Grill / Cowcatcher
   ctx.fillStyle = '#212121';
   ctx.fillRect(x - 4 * s, sp.y - 14 * s, w + 8 * s, 14 * s);
   for(let i = 0; i < 4; i++){
@@ -948,12 +1251,10 @@ function drawBarrier(sp, d){
   const w = 104 * s, h = 82 * s;
   const x = sp.x - w / 2, y = sp.y - h;
 
-  // Sturdy wooden/metal legs
   ctx.fillStyle = '#4E342E';
   ctx.fillRect(x + 8 * s, sp.y - 12 * s, 10 * s, 12 * s);
   ctx.fillRect(x + w - 18 * s, sp.y - 12 * s, 10 * s, 12 * s);
 
-  // Caution striped board
   const stripeH = h / 4;
   for(let i = 0; i < 4; i++){
     ctx.fillStyle = i % 2 === 0 ? '#FF6D00' : '#FFD600';
@@ -963,7 +1264,6 @@ function drawBarrier(sp, d){
   ctx.lineWidth = Math.max(1, 2.5 * s);
   ctx.strokeRect(x, y, w, h);
 
-  // Reflector badges
   ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
   ctx.beginPath();
   ctx.arc(x + 16 * s, y + h * 0.5, 6 * s, 0, Math.PI * 2);
@@ -978,19 +1278,16 @@ function drawOverheadBeam(sp, d){
   const beamW = LW * 2.15 * s;
   const bx = sp.x - beamW / 2;
 
-  // Side supports down to ground
   ctx.fillStyle = `rgba(106, 27, 154, ${d * 0.85})`;
   ctx.fillRect(bx - 8 * s, beamTop, 12 * s, 130 * s);
   ctx.fillRect(bx + beamW - 4 * s, beamTop, 12 * s, 130 * s);
 
-  // Cross beam
   const bg = ctx.createLinearGradient(bx, beamTop, bx, beamTop + beamH);
   bg.addColorStop(0, '#7B1FA2');
   bg.addColorStop(1, '#4A148C');
   ctx.fillStyle = bg;
   ctx.fillRect(bx, beamTop, beamW, beamH);
 
-  // Neon Caution Stripes
   const stripeW = 16 * s;
   for(let i = 0; i < Math.ceil(beamW / stripeW); i++){
     const sx = bx + i * stripeW;
@@ -998,7 +1295,6 @@ function drawOverheadBeam(sp, d){
     ctx.fillRect(sx, beamTop, Math.min(stripeW, beamW - (sx - bx)), beamH);
   }
 
-  // Neon glowing trim
   ctx.save();
   ctx.shadowColor = '#E040FB';
   ctx.shadowBlur = 14 * d;
@@ -1007,7 +1303,6 @@ function drawOverheadBeam(sp, d){
   ctx.strokeRect(bx, beamTop, beamW, beamH);
   ctx.restore();
 
-  // DUCK! alert sign
   ctx.fillStyle = '#FFFFFF';
   ctx.font = `bold ${Math.max(10, 14 * s)}px Arial Black, Arial`;
   ctx.textAlign = 'center';
@@ -1039,7 +1334,6 @@ class Coin {
     const r = 14 * sp.s;
     if(r < 1.2) return;
 
-    // Outer glow aura
     const gl = ctx.createRadialGradient(sp.x, sp.y, 0, sp.x, sp.y, r * 2.6);
     gl.addColorStop(0, 'rgba(255, 215, 0, 0.4)');
     gl.addColorStop(1, 'transparent');
@@ -1048,7 +1342,6 @@ class Coin {
     ctx.arc(sp.x, sp.y, r * 2.6, 0, Math.PI * 2);
     ctx.fill();
 
-    // 3D Spinning Coin (horizontal scale oscillate)
     const spin = Math.abs(Math.cos(this.t));
     ctx.save();
     ctx.translate(sp.x, sp.y);
@@ -1067,7 +1360,6 @@ class Coin {
     ctx.lineWidth = 1.8 * sp.s;
     ctx.stroke();
 
-    // Star icon inside coin
     ctx.fillStyle = '#FFFFFF';
     ctx.font = `bold ${Math.max(8, 12 * sp.s)}px Arial`;
     ctx.textAlign = 'center';
@@ -1082,7 +1374,6 @@ class Coin {
     if(this.hit) return false;
     if(Math.abs(this.depth - PD) > 0.09) return false;
 
-    // Magnet auto-attraction logic
     if(player.magnet > 0){
       if(Math.abs(player.laneX - this.wx) < LW * 2.3){
         this.hit = true;
@@ -1121,7 +1412,6 @@ class PowerUp {
       x2:     { dk: '#E65100', lt: '#FFD54F', icon: '2×' }
     }[this.type];
 
-    // Pulsing aura
     const gl = ctx.createRadialGradient(sp.x, sp.y, 0, sp.x, sp.y, r * 2.8);
     gl.addColorStop(0, theme.lt + '66');
     gl.addColorStop(1, 'transparent');
@@ -1130,7 +1420,6 @@ class PowerUp {
     ctx.arc(sp.x, sp.y, r * 2.8, 0, Math.PI * 2);
     ctx.fill();
 
-    // Orb base
     const bg = ctx.createRadialGradient(sp.x - r * 0.3, sp.y - r * 0.3, 0, sp.x, sp.y, r);
     bg.addColorStop(0, '#FFFFFF');
     bg.addColorStop(0.4, theme.lt);
@@ -1144,7 +1433,6 @@ class PowerUp {
     ctx.lineWidth = 2.5 * sp.s;
     ctx.stroke();
 
-    // Icon
     ctx.fillStyle = '#FFFFFF';
     ctx.font = `bold ${Math.max(10, 15 * sp.s)}px Arial`;
     ctx.textAlign = 'center';
@@ -1160,13 +1448,20 @@ class PowerUp {
   }
 }
 
-// ─── GAME STATE & LOOP ─────────────────────────────────────
+// ─── GAME STATE & VARIABLES ────────────────────────────────
 let ST = 'start'; // 'start' | 'playing' | 'dying' | 'over'
 let score = 0, coins = 0, dist = 0, hs = +localStorage.getItem('subway_hs') || 0;
 let spd = SI, scx = 0, gt = 0, mult = 1;
 let player, OBS, CNS, PUS;
 let nextObsTime, nextCoinTime, nextPUTime, dyingTimer = 0;
 let touchStartX = 0, touchStartY = 0;
+
+function updateHighScoreUI(){
+  if(bestScoreTag){
+    bestScoreTag.textContent = hs > 0 ? `🏆 HIGH SCORE: ${hs.toLocaleString()} PTS` : '🏆 HIGH SCORE: 0 PTS';
+  }
+}
+updateHighScoreUI();
 
 function resetGame(){
   score = 0;
@@ -1184,6 +1479,12 @@ function resetGame(){
   nextCoinTime = 0.6;
   nextPUTime = 12.0;
   player = new Player();
+}
+
+function openMainMenu(){
+  ST = 'start';
+  updateHighScoreUI();
+  if(startScreen) startScreen.classList.remove('hidden');
 }
 
 // ─── SPAWNING SYSTEMS ──────────────────────────────────────
@@ -1211,20 +1512,16 @@ function spawnObstacles(){
 
 function spawnCoins(){
   const coinFormations = [
-    // Straight single-lane trail
     () => {
       const l = randi(0, 2), n = randi(5, 8);
       for(let i = 0; i < n; i++) CNS.push(new Coin(l, SD + i * 0.016));
     },
-    // Left-to-right zigzag wave
     () => {
       [0, 1, 2, 1, 0].forEach((l, i) => CNS.push(new Coin(l, SD + i * 0.02)));
     },
-    // Right-to-left wave
     () => {
       [2, 1, 0, 1, 2].forEach((l, i) => CNS.push(new Coin(l, SD + i * 0.02)));
     },
-    // Double parallel lane trail
     () => {
       const l = randi(0, 1);
       for(let i = 0; i < 5; i++){
@@ -1244,7 +1541,6 @@ function spawnPowerUp(){
 function checkCollisions(){
   if(!player || player.state === 'dead') return;
 
-  // Obstacle checks
   for(const obs of OBS){
     if(obs.hits(player)){
       if(player.tryHit()){
@@ -1255,7 +1551,6 @@ function checkCollisions(){
     }
   }
 
-  // Coin pickups
   for(const coin of CNS){
     if(coin.hits(player)){
       coin.hit = true;
@@ -1267,7 +1562,6 @@ function checkCollisions(){
     }
   }
 
-  // Power-up pickups
   for(const pu of PUS){
     if(pu.hits(player)){
       pu.hit = true;
@@ -1289,15 +1583,19 @@ function checkCollisions(){
 
 // ─── MAIN UPDATE STEP ──────────────────────────────────────
 function update(dt){
+  // Ambient motion on start menu
+  if(ST === 'start'){
+    scx += 35 * dt;
+    return;
+  }
+
   if(ST !== 'playing' && ST !== 'dying') return;
 
-  // Screen shake decay
   if(SK.t > 0){
     SK.t -= dt;
     if(SK.t <= 0){ SK.x = 0; SK.y = 0; }
   }
 
-  // Death transition
   if(ST === 'dying'){
     dyingTimer -= dt;
     player?.update(dt);
@@ -1310,6 +1608,7 @@ function update(dt){
       if(score > hs){
         hs = score;
         localStorage.setItem('subway_hs', hs);
+        updateHighScoreUI();
       }
     }
     return;
@@ -1321,7 +1620,6 @@ function update(dt){
   score = Math.floor(dist) + coins * 10;
   scx += spd * 350 * dt;
 
-  // Spawn timers
   nextObsTime -= dt;
   if(nextObsTime <= 0){
     spawnObstacles();
@@ -1340,7 +1638,6 @@ function update(dt){
     nextPUTime = rand(12, 22);
   }
 
-  // Update game entities
   player.update(dt);
 
   for(let i = OBS.length - 1; i >= 0; i--){
@@ -1454,59 +1751,65 @@ function drawActiveBar(x, y, pct, icon, color){
   ctx.fillText(icon + ' ' + Math.ceil(pct * 10) * 10 + '%', x + 5, y + 14);
 }
 
-// ─── START SCREEN ──────────────────────────────────────────
+// ─── CANVAS FALLBACK START SCREEN ──────────────────────────
 function drawStartScreen(){
-  ctx.fillStyle = 'rgba(5, 2, 14, 0.72)';
+  ctx.fillStyle = 'rgba(5, 2, 14, 0.65)';
   ctx.fillRect(0, 0, W, H);
 
-  // Game Logo with Glow
+  // Logo
   ctx.save();
   ctx.shadowColor = '#FF6D00';
   ctx.shadowBlur = 35;
   ctx.fillStyle = '#FF6D00';
-  ctx.font = 'bold 58px Arial Black, Arial';
+  ctx.font = 'bold 54px Arial Black, Arial';
   ctx.textAlign = 'center';
-  ctx.fillText('SUBWAY', W / 2, H * 0.24);
+  ctx.fillText('SUBWAY', W / 2, H * 0.20);
 
   ctx.shadowColor = '#FFD600';
   ctx.shadowBlur = 30;
   ctx.fillStyle = '#FFD600';
-  ctx.font = 'bold 64px Arial Black, Arial';
-  ctx.fillText('DASH', W / 2, H * 0.34);
+  ctx.font = 'bold 60px Arial Black, Arial';
+  ctx.fillText('DASH', W / 2, H * 0.29);
   ctx.restore();
 
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.75)';
-  ctx.font = 'italic 16px Arial';
+  // Tagline
+  ctx.fillStyle = '#00E5FF';
+  ctx.font = 'bold 11px Arial';
   ctx.textAlign = 'center';
-  ctx.fillText('Endless Urban Runner Clone', W / 2, H * 0.40);
+  ctx.fillText('DODGE THE TRAINS • CHASE THE GOLD • DEFY THE RAILS', W / 2, H * 0.33);
+
+  // About App Summary
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+  ctx.font = '12px Arial';
+  ctx.fillText('High-speed 3D urban endless runner with lightning reflexes.', W / 2, H * 0.38);
 
   if(hs > 0){
     ctx.fillStyle = '#FFD54F';
-    ctx.font = 'bold 16px Arial';
-    ctx.fillText('🏆 HIGH SCORE: ' + hs.toLocaleString(), W / 2, H * 0.47);
+    ctx.font = 'bold 15px Arial';
+    ctx.fillText('🏆 HIGH SCORE: ' + hs.toLocaleString() + ' PTS', W / 2, H * 0.44);
   }
 
   // Pulsing Play Button
   const pulse = 1 + 0.04 * Math.sin(Date.now() * 0.004);
   ctx.save();
-  ctx.translate(W / 2, H * 0.60);
+  ctx.translate(W / 2, H * 0.58);
   ctx.scale(pulse, pulse);
 
-  const bw = 230, bh = 64;
+  const bw = 220, bh = 58;
   const btnGrad = ctx.createLinearGradient(-bw / 2, 0, bw / 2, bh);
   btnGrad.addColorStop(0, '#FF6D00');
   btnGrad.addColorStop(1, '#D50000');
   ctx.fillStyle = btnGrad;
-  rr(-bw / 2, 0, bw, bh, 32);
+  rr(-bw / 2, 0, bw, bh, 29);
   ctx.fill();
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
-  ctx.lineWidth = 3;
-  rr(-bw / 2, 0, bw, bh, 32);
+  ctx.lineWidth = 2.5;
+  rr(-bw / 2, 0, bw, bh, 29);
   ctx.stroke();
 
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 26px Arial Black, Arial';
+  ctx.font = 'bold 22px Arial Black, Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.fillText('▶  PLAY NOW', 0, bh / 2);
@@ -1514,30 +1817,33 @@ function drawStartScreen(){
   ctx.restore();
 
   // Controls guide
-  ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-  ctx.font = 'bold 14px Arial';
-  ctx.textAlign = 'center';
-  ctx.fillText('CONTROLS', W / 2, H * 0.74);
-
-  const tips = [
-    '⬅ ➡  /  A D  /  Swipe Horizontal : Switch Lane',
-    '⬆  /  W  /  Space  /  Swipe Up : Jump',
-    '⬇  /  S  /  Swipe Down : Roll Under Obstacles'
-  ];
   ctx.fillStyle = 'rgba(255, 255, 255, 0.65)';
   ctx.font = '12px Arial';
-  tips.forEach((t, i) => ctx.fillText(t, W / 2, H * 0.78 + i * 22));
+  ctx.textAlign = 'center';
+  ctx.fillText('Arrows / WASD / Swipe : Move • Jump • Roll', W / 2, H * 0.72);
+
+  // Footer Credits & Rights Reserved
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+  ctx.font = 'bold 10px Arial';
+  ctx.fillText('ENGINEERED & DESIGNED BY', W / 2, H * 0.88);
+
+  ctx.fillStyle = '#FFD54F';
+  ctx.font = 'bold 14px Arial';
+  ctx.fillText('Shriyansh Thanneeru', W / 2, H * 0.91);
+
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+  ctx.font = '10px Arial';
+  ctx.fillText('© 2026 SUBWAY DASH • ALL RIGHTS RESERVED', W / 2, H * 0.94);
 }
 
 // ─── GAME OVER SCREEN ──────────────────────────────────────
 function drawGameOverScreen(){
-  ctx.fillStyle = 'rgba(5, 2, 14, 0.82)';
+  ctx.fillStyle = 'rgba(5, 2, 14, 0.84)';
   ctx.fillRect(0, 0, W, H);
 
-  const pw = 340, ph = 410;
+  const pw = 350, ph = 430;
   const px = W / 2 - pw / 2, py = H / 2 - ph / 2 - 15;
 
-  // Dialog card with neon border
   const cardGrad = ctx.createLinearGradient(px, py, px, py + ph);
   cardGrad.addColorStop(0, '#1c0836');
   cardGrad.addColorStop(1, '#2c0d52');
@@ -1556,70 +1862,90 @@ function drawGameOverScreen(){
   ctx.textAlign = 'center';
   ctx.shadowColor = '#FF1744';
   ctx.shadowBlur = 18;
-  ctx.fillText('GAME OVER', W / 2, py + 56);
+  ctx.fillText('GAME OVER', W / 2, py + 54);
   ctx.shadowBlur = 0;
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
   ctx.lineWidth = 1;
   ctx.beginPath();
-  ctx.moveTo(px + 20, py + 72);
-  ctx.lineTo(px + pw - 20, py + 72);
+  ctx.moveTo(px + 20, py + 68);
+  ctx.lineTo(px + pw - 20, py + 68);
   ctx.stroke();
 
-  // Final Score Display
+  // Score
   ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
   ctx.font = 'bold 12px Arial';
-  ctx.fillText('FINAL SCORE', W / 2, py + 102);
+  ctx.fillText('FINAL SCORE', W / 2, py + 98);
 
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 46px Arial Black, Arial';
-  ctx.fillText(score.toLocaleString(), W / 2, py + 152);
+  ctx.font = 'bold 44px Arial Black, Arial';
+  ctx.fillText(score.toLocaleString(), W / 2, py + 146);
 
   const isNewRecord = score > 0 && score >= hs;
   if(isNewRecord){
     ctx.fillStyle = '#FFD600';
-    ctx.font = 'bold 16px Arial';
+    ctx.font = 'bold 15px Arial';
     ctx.shadowColor = '#FFD600';
     ctx.shadowBlur = 12;
-    ctx.fillText('🏆 NEW HIGH SCORE RECORD! 🏆', W / 2, py + 184);
+    ctx.fillText('🏆 NEW HIGH SCORE RECORD! 🏆', W / 2, py + 176);
     ctx.shadowBlur = 0;
   } else {
     ctx.fillStyle = 'rgba(255, 215, 0, 0.75)';
     ctx.font = '14px Arial';
-    ctx.fillText('Best Record: ' + hs.toLocaleString(), W / 2, py + 184);
+    ctx.fillText('Best Record: ' + hs.toLocaleString() + ' PTS', W / 2, py + 176);
   }
 
   // Stats row
   ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
   ctx.font = '13px Arial';
-  ctx.fillText(`🪙 ${coins} Coins Collected  •  🏃 ${Math.floor(dist)}m Run`, W / 2, py + 215);
+  ctx.fillText(`🪙 ${coins} Coins Collected  •  🏃 ${Math.floor(dist)}m Run`, W / 2, py + 206);
 
   ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
   ctx.beginPath();
-  ctx.moveTo(px + 20, py + 236);
-  ctx.lineTo(px + pw - 20, py + 236);
+  ctx.moveTo(px + 20, py + 224);
+  ctx.lineTo(px + pw - 20, py + 224);
   ctx.stroke();
 
-  // Retry Button
-  const bw = 220, bh = 58;
-  const bx = W / 2 - bw / 2, by = py + ph - 88;
-  const retryGrad = ctx.createLinearGradient(bx, by, bx, by + bh);
+  // Action Buttons: Play Again & Main Menu
+  const bw = 230, bh = 50;
+  const bx = W / 2 - bw / 2;
+
+  // 1. Play Again Button
+  const by1 = py + 242;
+  const retryGrad = ctx.createLinearGradient(bx, by1, bx, by1 + bh);
   retryGrad.addColorStop(0, '#00C853');
   retryGrad.addColorStop(1, '#1B5E20');
   ctx.fillStyle = retryGrad;
-  rr(bx, by, bw, bh, 29);
+  rr(bx, by1, bw, bh, 25);
   ctx.fill();
-
   ctx.strokeStyle = '#B9F6CA';
-  ctx.lineWidth = 2.5;
-  rr(bx, by, bw, bh, 29);
+  ctx.lineWidth = 2;
+  rr(bx, by1, bw, bh, 25);
   ctx.stroke();
 
   ctx.fillStyle = '#FFFFFF';
-  ctx.font = 'bold 24px Arial Black, Arial';
+  ctx.font = 'bold 18px Arial Black, Arial';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  ctx.fillText('↺  PLAY AGAIN', W / 2, by + bh / 2);
+  ctx.fillText('↺  PLAY AGAIN', W / 2, by1 + bh / 2);
+
+  // 2. Main Menu Button
+  const by2 = py + 304;
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+  rr(bx, by2, bw, bh, 25);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.2)';
+  rr(bx, by2, bw, bh, 25);
+  ctx.stroke();
+
+  ctx.fillStyle = '#E0E0E0';
+  ctx.font = 'bold 17px Arial Black, Arial';
+  ctx.fillText('🏠  MAIN MENU', W / 2, by2 + bh / 2);
+
+  // Creator credit on Game Over footer
+  ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+  ctx.font = '10px Arial';
+  ctx.fillText('ENGINEERED & DESIGNED BY SHRIYANSH THANNEERU', W / 2, py + ph - 22);
   ctx.textBaseline = 'alphabetic';
 }
 
@@ -1627,7 +1953,6 @@ function drawGameOverScreen(){
 function draw(){
   ctx.save();
 
-  // Screen shake translation
   if(SK.t > 0){
     ctx.translate((Math.random() - 0.5) * SK.x, (Math.random() - 0.5) * SK.y);
   }
@@ -1638,34 +1963,28 @@ function draw(){
   drawSkyline(scx);
   drawTrack(scx);
 
-  // Back-to-front depth sorting for 3D illusion
   const renderables = [
     ...OBS.map(o => ({ d: o.depth, entity: o })),
     ...CNS.filter(c => !c.hit).map(c => ({ d: c.depth, entity: c })),
     ...PUS.filter(p => !p.hit).map(p => ({ d: p.depth, entity: p }))
   ].sort((a, b) => a.d - b.d);
 
-  // Render objects behind player
   for(const item of renderables){
     if(item.d < PD) item.entity.draw();
   }
 
-  // Render player
   if(player) player.draw();
 
-  // Render objects in front of player
   for(const item of renderables){
     if(item.d >= PD) item.entity.draw();
   }
 
-  // Particles
   for(const p of PARTS) p.draw();
 
   ctx.restore();
 
-  // Overlays & HUD
   if(ST === 'playing' || ST === 'dying') drawHUD();
-  if(ST === 'start') drawStartScreen();
+  if(ST === 'start' && startScreen.classList.contains('hidden')) drawStartScreen();
   if(ST === 'over') drawGameOverScreen();
 }
 
@@ -1674,13 +1993,28 @@ function startGame(){
   initAC();
   resetGame();
   ST = 'playing';
+  if(startScreen) startScreen.classList.add('hidden');
   SFX.start();
+}
+
+// Play button click
+if(playBtn){
+  playBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    startGame();
+  });
 }
 
 document.addEventListener('keydown', e => {
   initAC();
-  if(ST === 'start' || ST === 'over'){
-    startGame();
+  if(ST === 'start'){
+    if(e.key === ' ' || e.key === 'Enter' || e.key.startsWith('Arrow')){
+      startGame();
+      return;
+    }
+  }
+  if(ST === 'over'){
+    if(e.key === ' ' || e.key === 'Enter') startGame();
     return;
   }
   if(ST !== 'playing') return;
@@ -1718,7 +2052,7 @@ C.addEventListener('touchstart', e => {
   initAC();
   touchStartX = e.touches[0].clientX;
   touchStartY = e.touches[0].clientY;
-  if(ST === 'start' || ST === 'over') startGame();
+  if(ST === 'start') startGame();
 }, { passive: false });
 
 C.addEventListener('touchend', e => {
@@ -1730,7 +2064,7 @@ C.addEventListener('touchend', e => {
   const dist = Math.sqrt(dx * dx + dy * dy);
 
   if(dist < 20){
-    player.jump(); // Tap to jump
+    player.jump();
     return;
   }
 
@@ -1741,20 +2075,32 @@ C.addEventListener('touchend', e => {
   }
 }, { passive: false });
 
-// Mouse Click on UI Buttons
+// Canvas Click handler (primarily for Game Over buttons)
 C.addEventListener('click', e => {
   initAC();
   const rect = C.getBoundingClientRect();
   const cx = (e.clientX - rect.left) * (W / rect.width);
   const cy = (e.clientY - rect.top) * (H / rect.height);
 
-  if(ST === 'start'){
-    const by = H * 0.60, bh = 64;
-    if(cy > by && cy < by + bh) startGame();
-  }
   if(ST === 'over'){
-    const py = H / 2 - 220, by = py + 410 - 88, bh = 58;
-    if(cy > by && cy < by + bh) startGame();
+    const pw = 350, ph = 430;
+    const px = W / 2 - pw / 2, py = H / 2 - ph / 2 - 15;
+    const bw = 230, bh = 50;
+    const bx = W / 2 - bw / 2;
+
+    // Play Again button check
+    const by1 = py + 242;
+    if(cx >= bx && cx <= bx + bw && cy >= by1 && cy <= by1 + bh){
+      startGame();
+      return;
+    }
+
+    // Main Menu button check
+    const by2 = py + 304;
+    if(cx >= bx && cx <= bx + bw && cy >= by2 && cy <= by2 + bh){
+      openMainMenu();
+      return;
+    }
   }
 });
 
@@ -1769,7 +2115,7 @@ function gameLoop(time){
 }
 
 resetGame();
-ST = 'start';
+openMainMenu();
 requestAnimationFrame(time => {
   lastTime = time;
   requestAnimationFrame(gameLoop);

@@ -1,13 +1,21 @@
 # Subway Dash 🚇
 
-A Subway Surfers-style 3D endless runner built with pure HTML5 Canvas and JavaScript. Zero external libraries, zero installation required—just open and play!
+> **DODGE THE TRAINS • CHASE THE GOLD • DEFY THE RAILS**
 
-![Subway Dash](screenshot_preview.png)
+A high-octane 3D endless runner clone of Subway Surfers engineered with pure HTML5 Canvas and JavaScript. Zero external libraries, zero installation required—just open and play!
 
-## 🎮 Features
+---
 
-- **Perspective 3D Track**: Dynamic vanishing-point track projection featuring railway tracks, wooden ties, glowing neon lane markers, and atmospheric lampposts.
-- **Parallax Cyberpunk Skyline**: Layered cityscape background with glowing windows, twinkling stars, and sunset horizon.
+## ⚡ About The App
+
+**Subway Dash** is an adrenaline-fueled 3D endless runner built for lightning-fast reflexes and street style. Dash across high-voltage tracks, dodge oncoming subway trains, leap over barricades, and roll underneath industrial beams. Collect gold coins, harness magnetic fields, trigger protective shields, and unlock score multipliers to shatter records!
+
+---
+
+## 🎮 Key Features & Highlights
+
+- **Perspective 3D Track**: Dynamic vanishing-point track projection featuring realistic railway tracks, wooden ties, glowing neon lane markers, and roadside lampposts.
+- **Parallax Cyberpunk Skyline**: Layered cityscape background with glowing windows, twinkling stars, and sunset horizon with ambient motion on menus.
 - **Authentic Runner Controls**:
   - **3-Lane Navigation**: Fluid quadratic interpolation between lanes.
   - **Jump & Landing**: Smooth gravity physics, tucked-leg jumping animation, and dust puffs on landing.
@@ -67,9 +75,17 @@ Then visit `http://localhost:8080`.
 - **HTML5 Canvas API**: Custom 2.5D/3D perspective projection and sprite rendering.
 - **Vanilla JavaScript**: State machine, delta-time game loop, collision detection, and procedural particle engines.
 - **Web Audio API**: Real-time sound effect synthesis.
+- **Glassmorphic UI**: High-definition CSS backdrop filters, responsive flex layout, and fluid typography.
 
 ---
 
-## 📄 License
+## 👨‍💻 Author & Credits
 
-MIT License. Free to use, modify, and build upon.
+**ENGINEERED & DESIGNED BY**  
+### **Shriyansh Thanneeru**
+
+---
+
+## 📄 License & Rights
+
+© 2026 Subway Dash. All Rights Reserved.
