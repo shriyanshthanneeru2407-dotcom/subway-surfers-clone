@@ -1,29 +1,44 @@
-# Subway Dash 🚇 — 3D Urban Endless Runner
+# Subway Dash - 3D Urban Endless Runner 🚇
 
-🌐 **Live App**: [https://subway-surfers-clone-one.vercel.app](https://subway-surfers-clone-one.vercel.app)  
-*(Alternative Mirror: [https://shriyanshthanneeru2407-dotcom.github.io/subway-surfers-clone/](https://shriyanshthanneeru2407-dotcom.github.io/subway-surfers-clone/))*
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HTML5](https://img.shields.io/badge/HTML5-Canvas-orange.svg)](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Web Audio](https://img.shields.io/badge/Web_Audio-API-blue.svg)](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+[![Vercel](https://img.shields.io/badge/Deployed-Vercel-black.svg)](https://subway-surfers-clone-one.vercel.app)
 
 > **DODGE THE TRAINS • CHASE THE GOLD • DEFY THE RAILS**
 
-Subway Dash is a high-speed, 3D urban endless runner inspired by Subway Surfers, engineered entirely from scratch using vanilla HTML5 Canvas, JavaScript, and synthesized procedural audio via the Web Audio API. Zero dependencies, zero build step—instant 60 FPS gameplay on desktop and mobile.
+A high-speed 3D urban endless runner inspired by Subway Surfers, engineered from scratch with vanilla HTML5 Canvas, JavaScript, and synthesized procedural audio via the Web Audio API. Zero dependencies, zero build step—instant 60 FPS gameplay on desktop and mobile.
 
 ---
 
-## 🚀 Live App
+## 🚀 Live Demo
 
-👉 **Play Now**: [https://subway-surfers-clone-one.vercel.app](https://subway-surfers-clone-one.vercel.app)
+You can play the live deployment here:  
+**👉 [https://subway-surfers-clone-one.vercel.app](https://subway-surfers-clone-one.vercel.app)**
+
+*(Alternative GitHub Pages Mirror: [https://shriyanshthanneeru2407-dotcom.github.io/subway-surfers-clone/](https://shriyanshthanneeru2407-dotcom.github.io/subway-surfers-clone/))*
+
+> **No installation required!** Click the link to jump straight onto the tracks. High scores and audio settings are saved directly in your browser.
 
 ---
 
-## 🌟 Core Highlights
+## 📂 GitHub Repository
 
-- 🌐 **Zero External Dependencies**: 100% self-contained single-file deployment. No heavy game engines, bundlers, or third-party libraries required.
-- ⚡ **60 FPS Perspective 3D Engine**: Custom vanishing-point depth projection renders realistic curved track ballast, dual steel rails, wooden sleepers, and roadside sodium-vapor lamps.
-- 🌆 **Parallax Cyberpunk Skyline**: Layered cityscape featuring ambient star twinkling, rooftop antennas, and responsive sunset twilight lighting.
-- 🏃 **Dynamic Character State Machine**: Smooth quadratic lane-switching, authentic gravity jump physics with tucked legs, and low-clearance rolling animations.
-- 🔊 **Web Audio API Sound Engine**: Real-time synthesized SFX for jumps, rolls, lane shifts, coin grabs, power-up chimes, and crash impacts.
-- 📱 **Cross-Platform Input**: Seamless support for desktop keyboard controls (`Arrow Keys`, `WASD`, `Space`) and mobile touch/swipe gestures.
-- 💾 **Local Score Persistence**: Automatically tracks and persists personal best high scores in the browser via `localStorage`.
+You can access the open-source repository here:  
+**👉 [https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone](https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone)**
+
+---
+
+## ✨ Features
+
+- **🌐 Zero External Dependencies**: 100% self-contained single-file deployment. No heavy game engines, bundlers, or third-party libraries required.
+- **⚡ 60 FPS Perspective 3D Engine**: Custom vanishing-point depth projection renders realistic curved track ballast, dual steel rails, wooden sleepers, and roadside sodium-vapor lamps.
+- **🌆 Parallax Cyberpunk Skyline**: Layered cityscape featuring ambient star twinkling, rooftop antennas, and responsive sunset twilight lighting.
+- **🏃 Dynamic Character State Machine**: Smooth quadratic lane-switching, authentic gravity jump physics with tucked legs, and low-clearance rolling animations.
+- **🔊 Web Audio API Sound Engine**: Real-time synthesized SFX for jumps, rolls, lane shifts, coin grabs, power-up chimes, and crash impacts.
+- **📱 Cross-Platform Input**: Seamless support for desktop keyboard controls (`Arrow Keys`, `WASD`, `Space`) and mobile touch/swipe gestures.
+- **💾 Local Score Persistence**: Automatically tracks and persists personal best high scores in the browser via `localStorage`.
 
 ---
 
@@ -53,24 +68,22 @@ Subway Dash is a high-speed, 3D urban endless runner inspired by Subway Surfers,
 
 ---
 
-## 💻 Local Development
+## 🚀 Quick Start & Local Development
 
 Run locally without any installation:
 
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone.git
-
-# Navigate into the project folder
 cd subway-surfers-clone
 
-# Open directly in browser (macOS)
+# 2. Open directly in browser (macOS)
 open index.html
 
 # Or serve locally with Python
 python3 -m http.server 8080
 ```
-Visit `http://localhost:8080` in your browser.
+Open `http://localhost:8080` in your browser.
 
 ---
 
