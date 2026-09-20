@@ -1,37 +1,41 @@
-# Subway Dash 🚇
+# Subway Dash 🚇 — 3D Urban Endless Runner
 
 > **DODGE THE TRAINS • CHASE THE GOLD • DEFY THE RAILS**
 
-A high-octane 3D endless runner clone of Subway Surfers engineered with pure HTML5 Canvas and JavaScript. Zero external libraries, zero installation required—just open and play!
+Subway Dash is a high-speed, 3D urban endless runner inspired by Subway Surfers, engineered entirely from scratch using vanilla HTML5 Canvas, JavaScript, and synthesized procedural audio via the Web Audio API. Zero dependencies, zero build step—instant 60 FPS gameplay on desktop and mobile.
 
 ---
 
-## ⚡ About The App
+## 🚀 GitHub Repository
 
-**Subway Dash** is an adrenaline-fueled 3D endless runner built for lightning-fast reflexes and street style. Dash across high-voltage tracks, dodge oncoming subway trains, leap over barricades, and roll underneath industrial beams. Collect gold coins, harness magnetic fields, trigger protective shields, and unlock score multipliers to shatter records!
+👉 **Repository Link**: [https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone](https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone)
 
 ---
 
-## 🎮 Key Features & Highlights
+## 🌟 Core Highlights
 
-- **Perspective 3D Track**: Dynamic vanishing-point track projection featuring realistic railway tracks, wooden ties, glowing neon lane markers, and roadside lampposts.
-- **Parallax Cyberpunk Skyline**: Layered cityscape background with glowing windows, twinkling stars, and sunset horizon with ambient motion on menus.
-- **Authentic Runner Controls**:
-  - **3-Lane Navigation**: Fluid quadratic interpolation between lanes.
-  - **Jump & Landing**: Smooth gravity physics, tucked-leg jumping animation, and dust puffs on landing.
-  - **Roll / Duck**: Low roll posture to slide under clearance obstacles, plus rapid downward dive from mid-air.
-- **Obstacles**:
-  - 🚂 **Subway Trains**: Full-height trains with glowing dual headlights, windshield reflections, and caution hazard stripes.
-  - 🚧 **Barriers**: Low hurdles requiring jumping.
-  - 🔲 **Overhead Beams**: Low clearance beams requiring crouching/rolling.
-- **Collectibles & Power-Ups**:
-  - 🪙 **Coins**: 3D spinning gold coins in varied lane formations.
-  - 🛡 **Shield**: Energy barrier providing collision protection and invulnerability frames.
-  - 🧲 **Coin Magnet**: Pulls coins toward you across all lanes.
-  - ⚡ **2× Multiplier**: Doubles distance and coin score rewards.
-- **Procedural Audio (Web Audio API)**: Sound effects synthesized on-the-fly for jumps, rolls, lane switches, coin grabs, power-ups, and crashes—no external audio files needed!
-- **Cross-Platform Input**: Full support for Keyboard (Arrows / WASD / Space) and Mobile touch/swipe gestures.
-- **Local Persistence**: Saves your personal high score locally using `localStorage`.
+- 🌐 **Zero External Dependencies**: 100% self-contained single-file deployment. No heavy game engines, bundlers, or third-party libraries required.
+- ⚡ **60 FPS Perspective 3D Engine**: Custom vanishing-point depth projection renders realistic curved track ballast, dual steel rails, wooden sleepers, and roadside sodium-vapor lamps.
+- 🌆 **Parallax Cyberpunk Skyline**: Layered cityscape featuring ambient star twinking, rooftop antennas, and responsive sunset twilight lighting.
+- 🏃 **Dynamic Character State Machine**: Smooth quadratic lane-switching, authentic gravity jump physics with tucked legs, and low-clearance rolling animations.
+- 🔊 **Web Audio API Sound Engine**: Real-time synthesized SFX for jumps, rolls, lane shifts, coin grabs, power-up chimes, and crash impacts.
+- 📱 **Cross-Platform Input**: Seamless support for desktop keyboard controls (`Arrow Keys`, `WASD`, `Space`) and mobile touch/swipe gestures.
+- 💾 **Local Score Persistence**: Automatically tracks and persists personal best high scores in the browser via `localStorage`.
+
+---
+
+## 🎮 Gameplay & Mechanics
+
+### 🚧 Obstacles
+- 🚂 **Subway Trains**: Full-scale oncoming express trains equipped with headlights, windshield glare, and caution chevron hazard stripes.
+- 🚧 **Track Barriers**: Low hurdles requiring timed jumps.
+- 🔲 **Overhead Beams**: Low-clearance industrial gantries marked with `▼ DUCK! ▼` warnings requiring crouch rolls or mid-air dives.
+
+### ⚡ Power-Ups & Buffs
+- 🛡️ **Energy Shield**: Absorbs a lethal impact, triggers protective invulnerability frames, and keeps the run alive.
+- 🧲 **Coin Magnet**: Powerful magnetic aura drawing gold coins from all three lanes simultaneously.
+- ⚡ **2× Multiplier**: Doubles distance points and coin rewards for the duration of the buff.
+- 🪙 **Gold Coins**: 3D spinning gold coins placed in dynamic straight, wave, and parallel formations.
 
 ---
 
@@ -46,46 +50,37 @@ A high-octane 3D endless runner clone of Subway Surfers engineered with pure HTM
 
 ---
 
-## 🚀 Getting Started
+## 💻 Local Development
 
-Simply open `index.html` in any modern web browser:
+Clone and run instantly without any installation:
 
 ```bash
-# macOS
+# Clone the repository
+git clone https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone.git
+
+# Navigate into the project folder
+cd subway-surfers-clone
+
+# Open directly in browser (macOS)
 open index.html
 
-# Linux
-xdg-open index.html
-
-# Windows
-start index.html
-```
-
-Or serve locally with Python:
-
-```bash
+# Or serve locally with Python
 python3 -m http.server 8080
 ```
-Then visit `http://localhost:8080`.
+Visit `http://localhost:8080` in your browser.
 
 ---
 
 ## 🛠 Tech Stack
 
-- **HTML5 Canvas API**: Custom 2.5D/3D perspective projection and sprite rendering.
-- **Vanilla JavaScript**: State machine, delta-time game loop, collision detection, and procedural particle engines.
-- **Web Audio API**: Real-time sound effect synthesis.
-- **Glassmorphic UI**: High-definition CSS backdrop filters, responsive flex layout, and fluid typography.
+- **HTML5 Canvas 2D / 2.5D**: Custom 3D perspective projection and sprite rendering pipeline.
+- **Vanilla JavaScript (ES6+)**: Delta-timing game loop, collision detection, particle physics, and state machines.
+- **Web Audio API**: Hardware-accelerated dynamic oscillator and gain sound synthesis.
+- **Modern CSS**: Glassmorphism backdrop filters (`backdrop-filter: blur(14px)`), neon glows, and responsive container scaling.
 
 ---
 
-## 👨‍💻 Author & Credits
+## 👨‍💻 Author & Copyright
 
-**ENGINEERED & DESIGNED BY**  
-### **Shriyansh Thanneeru**
-
----
-
-## 📄 License & Rights
-
-© 2026 Subway Dash. All Rights Reserved.
+- **Creator & Engineer**: **Shriyansh Thanneeru**
+- **Copyright**: © 2026 Subway Dash. All rights reserved.
