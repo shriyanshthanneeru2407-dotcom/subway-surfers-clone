@@ -1,14 +1,17 @@
 # Subway Dash 🚇 — 3D Urban Endless Runner
 
+🌐 **Live App**: [https://subway-surfers-clone-one.vercel.app](https://subway-surfers-clone-one.vercel.app)  
+*(Alternative Mirror: [https://shriyanshthanneeru2407-dotcom.github.io/subway-surfers-clone/](https://shriyanshthanneeru2407-dotcom.github.io/subway-surfers-clone/))*
+
 > **DODGE THE TRAINS • CHASE THE GOLD • DEFY THE RAILS**
 
 Subway Dash is a high-speed, 3D urban endless runner inspired by Subway Surfers, engineered entirely from scratch using vanilla HTML5 Canvas, JavaScript, and synthesized procedural audio via the Web Audio API. Zero dependencies, zero build step—instant 60 FPS gameplay on desktop and mobile.
 
 ---
 
-## 🚀 GitHub Repository
+## 🚀 Live App
 
-👉 **Repository Link**: [https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone](https://github.com/shriyanshthanneeru2407-dotcom/subway-surfers-clone)
+👉 **Play Now**: [https://subway-surfers-clone-one.vercel.app](https://subway-surfers-clone-one.vercel.app)
 
 ---
 
@@ -16,7 +19,7 @@ Subway Dash is a high-speed, 3D urban endless runner inspired by Subway Surfers,
 
 - 🌐 **Zero External Dependencies**: 100% self-contained single-file deployment. No heavy game engines, bundlers, or third-party libraries required.
 - ⚡ **60 FPS Perspective 3D Engine**: Custom vanishing-point depth projection renders realistic curved track ballast, dual steel rails, wooden sleepers, and roadside sodium-vapor lamps.
-- 🌆 **Parallax Cyberpunk Skyline**: Layered cityscape featuring ambient star twinking, rooftop antennas, and responsive sunset twilight lighting.
+- 🌆 **Parallax Cyberpunk Skyline**: Layered cityscape featuring ambient star twinkling, rooftop antennas, and responsive sunset twilight lighting.
 - 🏃 **Dynamic Character State Machine**: Smooth quadratic lane-switching, authentic gravity jump physics with tucked legs, and low-clearance rolling animations.
 - 🔊 **Web Audio API Sound Engine**: Real-time synthesized SFX for jumps, rolls, lane shifts, coin grabs, power-up chimes, and crash impacts.
 - 📱 **Cross-Platform Input**: Seamless support for desktop keyboard controls (`Arrow Keys`, `WASD`, `Space`) and mobile touch/swipe gestures.
@@ -52,7 +55,7 @@ Subway Dash is a high-speed, 3D urban endless runner inspired by Subway Surfers,
 
 ## 💻 Local Development
 
-Clone and run instantly without any installation:
+Run locally without any installation:
 
 ```bash
 # Clone the repository
